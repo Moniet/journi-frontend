@@ -62,7 +62,7 @@ const getPosts = (token) => {
         .then(res => res.json())
 }
 
-  const createPosts = (token, body, title) => {
+const createPosts = (token, body, title) => {
     return fetch(POSTS_URL, {
         ...userOpts(),
         body: JSON.stringify({
@@ -72,7 +72,7 @@ const getPosts = (token) => {
             }
         })
     }).then(res => res.json())
-  }
+}
 
 export default {
     registerUser,
