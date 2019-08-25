@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.submit {
+    width: 100px;
+    font-weight: normal;
+    padding: 0.75em;
+    background: $btn;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: $shadow;
+    letter-spacing: 2px;
+    
+    &:hover {
+        box-shadow: $shadow-hover;
+    }
+}

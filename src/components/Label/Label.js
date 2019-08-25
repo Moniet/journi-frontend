@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Label.module.scss'
 
-const Label = ({ value, forId }) => (
-    <label for={forId}> { value } </label>
+const Label = ({ value, inputId }) => (
+    <label for={inputId} className={styles.label}> { value } </label>
 )
 
 export default Label
