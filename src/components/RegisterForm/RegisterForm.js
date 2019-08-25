@@ -13,12 +13,12 @@ const RegisterForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        API.registerUser(username, password)
+        API.registerUser(name, username, password)
             .then(data => {
                 setPassword('');
                 setUsername('');
+                setName('');
             })
-            .catch(error => console.log(error))
     }
 
     return (
@@ -29,6 +29,7 @@ const RegisterForm = () => {
             <TextInput setValue={ setUsername } value={ username } inputId="username" />
             <Label value={ 'Password' } inputId="password" />
             <PasswordInput setValue={ setPassword } value={ password } inputId="password" />
+            <Submit />
         </form>
     )
 }
