@@ -58,9 +58,14 @@ const loginUser = (username, password) => {
         .then(res => res.json())
 }
 
-const createPosts = (token, body, title) => {
+const createPost = (token, title, body) => {
     return fetch(POSTS_URL, {
-        ...userOpts(),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
         body: JSON.stringify({
             post: { 
                 title,
@@ -68,6 +73,23 @@ const createPosts = (token, body, title) => {
             }
         })
     }).then(res => res.json())
+}
+
+const editPost = (token, id, title, body) => {
+    return fetch(`${POSTS_URL}/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            post: {
+                title,
+                body
+            }
+        })
+    })    
 }
 
 const getPosts = (token) => {
@@ -78,6 +100,7 @@ const getPosts = (token) => {
 export default {
     registerUser,
     loginUser,
-    createPosts,
+    createPost,
+    editPost,
     getPosts
 }

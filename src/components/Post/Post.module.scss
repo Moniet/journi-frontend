@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+
+.post {
+    position: relative;
+    border: solid 1px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-shadow: $post-shadow;
+    outline: none;
+    display: grid;
+    grid-template-rows: auto 1fr 50px;
+}
+
+.postHeader {
+    background: $post-bg;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+    padding: 1em;
+    border-radius: 5px 5px 0 0;
+}
+
+.postFooter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: $post-bg;
+    border-top: solid 1px rgba(0,0,0,0.1);
+    padding: 0.5em;
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+}
+
+.postTitle {
+    font-weight: bold;
+}
+
+.postBody {
+    margin: 1em;
+    line-height: 1.5em;
+    font-size: 0.75em;
+    background: #fff;
+    outline: none;
+}
+
+.btn, .btnSave {
+    padding: 0.5em;
+    border: none;
+    margin-right: 1em;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn {
+    background: $btn;
+}
+
+.btnSave {
+    background: pink;
+}

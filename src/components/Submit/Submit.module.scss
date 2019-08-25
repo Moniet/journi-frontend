@@ -11,10 +11,5 @@
     border-radius: 5px;
     box-shadow: $shadow;
     letter-spacing: 1px;
-    transition-duration: 0.2s;
-    
-    &:hover {
-        box-shadow: $shadow-hover;
-        transition-duration: 0.2s;
-    }
+    cursor: pointer;
 }
