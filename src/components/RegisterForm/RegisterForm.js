@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import API from '../../utilities/API'
+import API from '../../utils/API'
 import styles from './RegisterForm.module.scss'
 import TextInput from '../TextInput/TextInput'
 import Label from '../Label/Label'

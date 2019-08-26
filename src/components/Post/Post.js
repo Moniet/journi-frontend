@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './Post.module.scss'
 import { Module } from 'module';
-import API from '../../utilities/API';
+import API from '../../utils/API';
 
 const Post = ({ post, removePost }) => {
     const postEl = useRef(null)
