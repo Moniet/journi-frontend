@@ -1,14 +1,23 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import styles from './Login.module.scss'
 import Layout from '../Layout/Layout'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
-const LoginPage = ({ setPosts, setLoggedIn, loggedIn }) => (
-    <div className={styles.container}>
-        <LoginForm setPosts={ setPosts } setLoggedIn={ setLoggedIn } loggedIn={ loggedIn } />
-    </div>
-)
+const LoginPage = ({ setPosts, setLoggedIn, loggedIn }) => {
+    const errorDiv = useRef();
+    const showError = (error) => {
+        errorDiv.current.classList.add('show')
+        errorDiv.current.textContent = error;
+    }
+
+    return (
+        <div className={styles.container}>
+            <div ref={errorDiv} className="error"></div>
+            <LoginForm setPosts={ setPosts } setLoggedIn={ setLoggedIn } loggedIn={ loggedIn }  showError={ showError }/>
+        </div>
+    )
+}
 
 const Login = ({ setPosts, loggedIn, setLoggedIn }) => (
     <Route 
