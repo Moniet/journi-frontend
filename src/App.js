@@ -29,11 +29,12 @@ function App() {
           setPosts(data.posts)        
       })
     }
-  }, [])
+    if (!loggedIn) setPosts([]);
+  }, [loggedIn])
 
   return (
     <BrowserRouter>
-      <Layout loggedIn={isLoggedIn}>
+      <Layout loggedIn={isLoggedIn} setLoggedIn={ setLoggedIn }>
         <Route exact path='/' render={ () => <Home loggedIn={ loggedIn } posts={ posts } setPosts={ setPosts } removePost={ removePost } /> } />
         <Route exact path="/login" render={ () => <Login loggedIn={ loggedIn } setPosts={ setPosts } setLoggedIn={ setLoggedIn } /> } />
         <Route exact path="/register" render={ () =>  <Register loggedIn={ loggedIn } setLoggedIn={ setLoggedIn } /> } />

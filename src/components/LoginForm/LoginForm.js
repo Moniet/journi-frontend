@@ -18,12 +18,12 @@ const LoginForm = ({ setPosts, setLoggedIn, loggedIn, showError }) => {
                     setPassword('');
                     setUsername('');
                     setPosts(data.posts.data)
-                }
+                }  
 
-                if (!data.errors) {
-                    setLoggedIn(true)
+                if (data.jwt) {
                     localStorage.setItem('token', data.jwt)
-                }      
+                    setLoggedIn(true)
+                }
                 
                 if (data.errors) showError(data.errors);
             })

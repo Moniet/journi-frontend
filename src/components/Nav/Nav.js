@@ -2,9 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Nav.module.scss'
 
-const Nav = ({ loggedIn }) => {
+const Nav = ({ loggedIn, setLoggedIn }) => {
 
-    console.log(loggedIn);
+    const logoutUser = () => {
+        localStorage.setItem('token', 'false')
+        setLoggedIn(false)
+    }
     
     return (   
         <nav role="navigation" className={styles.nav}>
@@ -16,7 +19,7 @@ const Nav = ({ loggedIn }) => {
             
             <ul className={styles.navList}>
                 {   loggedIn 
-                    ? <li className={styles.listItem}><Link to="/logout"> Logout </Link></li>
+                    ? <li className={styles.listItem} onClick={ () => logoutUser() }>Logout</li>
                     : <>
                         <li className={styles.listItem}><Link to="/login"> Login </Link></li>
                         <li className={styles.listItem}><Link to="/register"> Register </Link></li>
