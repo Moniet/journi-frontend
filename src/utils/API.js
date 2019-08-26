@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = 'https://journi-app.herokuapp.com'
 const LOGIN_URL = `${BASE_URL}/login`
 const REGISTER_URL = `${BASE_URL}/register`
 const POSTS_URL = `${BASE_URL}/posts`
