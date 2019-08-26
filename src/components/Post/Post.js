@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './Post.module.scss'
-import { Module } from 'module';
 import API from '../../utils/API';
 
 const Post = ({ post, removePost }) => {
