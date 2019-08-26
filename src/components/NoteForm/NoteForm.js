@@ -16,10 +16,9 @@ const NoteForm = ({ setPosts, posts }) => {
         const token = localStorage.getItem('token')
         API.createPost(token, title, body)
             .then(post => {
-                setPosts([
-                    post.data,
-                    ...posts
-                ])
+                if (post.data) setPosts([ post.data, ...posts]);
+                // if (!post.data) setPosts([...posts])
+                // console.log(post)
             })
     }
 

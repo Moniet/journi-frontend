@@ -6,7 +6,7 @@ import Label from '../Label/Label'
 import PasswordInput from '../PasswordInput/PasswordInput';
 import Submit from '../Submit/Submit'
 
-const RegisterForm = () => {
+const RegisterForm = ({ showError, setLoggedIn, loggedIn }) => {
     const [username, setUsername] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
@@ -15,9 +15,12 @@ const RegisterForm = () => {
         e.preventDefault()
         API.registerUser(name, username, password)
             .then(data => {
-                setPassword('');
-                setUsername('');
-                setName('');
+                if (data.jwt) {
+                    setLoggedIn(true)
+                    localStorage.setItem('token', data.jwt)
+                }
+
+                if (data.errors) showError(data.errors)
             })
     }
 

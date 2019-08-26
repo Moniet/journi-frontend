@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { Route, Redirect } from 'react-router-dom' 
 import styles from './Register.module.scss'
-import Layout from '../Layout/Layout'
 import RegisterForm from '../../components/RegisterForm/RegisterForm'
 
-const Register = () => (
-    <div className={styles.container}>
-        <RegisterForm />
-    </div>
+const RegisterPage = ({ setLoggedIn, loggedIn }) => {
+    const errorDiv = useRef();
+    const showError = (error) => {
+        errorDiv.current.classList.add('show');
+        errorDiv.current.textContent = error;
+    }
+
+    return (
+        <div className={styles.container}>
+            <div ref={errorDiv} className="error"></div>
+            <RegisterForm showError={ showError }  loggedIn={ loggedIn } setLoggedIn={ setLoggedIn } />
+        </div>
+    )
+}
+
+const Register = ({ setLoggedIn, loggedIn }) => (
+    <Route 
+        exact path="/register" 
+        render={() => (
+        loggedIn ? 
+        <Redirect to='/' />
+        : <RegisterPage setLoggedIn={ setLoggedIn} loggedIn={ loggedIn }/>
+        )}
+    />
 )
 
 export default Register

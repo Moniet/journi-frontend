@@ -7,11 +7,11 @@ import Grid from '../Grid/Grid'
 
 // )
 
-const Dashboard = ({ posts, setPosts }) => (
+const Dashboard = ({ posts, setPosts, removePost }) => (
     <div className={styles.container}>
         {/* header */}
-        <NoteForm setPosts={ setPosts} posts={ posts } />
-        <Grid posts={ posts } />
+        <NoteForm setPosts={ setPosts } posts={ posts } />
+        <Grid posts={ posts }  setPosts={ setPosts } removePost={ removePost }/>
     </div>
 )
 

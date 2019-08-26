@@ -3,7 +3,7 @@ import styles from './Post.module.scss'
 import { Module } from 'module';
 import API from '../../utils/API';
 
-const Post = (post) => {
+const Post = ({ post, removePost }) => {
     const postEl = useRef(null)
     const postHeader = useRef(null)
     const postTitle = useRef(null)
@@ -22,20 +22,21 @@ const Post = (post) => {
         resize();
         postBody.current.contentEditable = editable;
         postTitle.current.contentEditable = editable;
-        // postTitle.current.style.boxShadow = editable ? '0px 0px 0px 2px pink' : 'none'; 
-        // postBody.current.style.boxShadow = editable ? '0px 0px 0px 2px pink' : 'none';
-        // if (editable) postEl.current.style.zIndex += 1000;
-        // if (!editable) postEl.current.style.zIndex = 0;
+        postTitle.current.style.boxShadow = editable ? '0px 0px 0px 2px pink' : 'none'; 
+        postBody.current.style.boxShadow = editable ? '0px 0px 0px 2px pink' : 'none';
+        if (editable) postEl.current.style.zIndex += 1000;
+        if (!editable) postEl.current.style.zIndex = 0;
     }, [editable])    
 
     const deletePost = () => {
-        return;
+        API.deletePost(token, post.id)
+            .then(removePost(post.id))
     }
 
     const savePost = () => {
         const title = postTitle.current.textContent
         const body = postBody.current.textContent
-        API.editPost(token, post.post.id, title, body)
+        API.editPost(token, post.id, title, body)
             .then(makeEditable(false))
     }
 
@@ -43,11 +44,11 @@ const Post = (post) => {
        post ?
         <div ref={postEl} className={ styles.post }>
             <header ref={ postHeader } className={ styles.postHeader } >
-                <h2 ref={ postTitle } className={ styles.postTitle }>{ post.post.attributes.title }</h2>
+                <h2 ref={ postTitle } className={ styles.postTitle }>{ post.attributes.title }</h2>
             </header>
 
             <div ref={postBody} className={ styles.postBody } >
-                { post.post.attributes.body }
+                { post.attributes.body }
             </div>
 
             <footer ref={postFooter} className={styles.postFooter}>

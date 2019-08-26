@@ -1,7 +1,6 @@
 import React, {useRef} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import styles from './Login.module.scss'
-import Layout from '../Layout/Layout'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
 const LoginPage = ({ setPosts, setLoggedIn, loggedIn }) => {
