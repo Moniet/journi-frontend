@@ -6,7 +6,7 @@ import Label from '../Label/Label'
 import PasswordInput from '../PasswordInput/PasswordInput';
 import Submit from '../Submit/Submit'
 
-const LoginForm = ({ setPosts }) => {
+const LoginForm = ({ setPosts, setLoggedIn, loggedIn }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -15,11 +15,15 @@ const LoginForm = ({ setPosts }) => {
         API.loginUser(username, password)
             .then(data => {
                 localStorage.setItem('token', data.jwt)
-                setPassword('');
-                setUsername('');
-                setPosts(data.posts.data)
+
+                if (data.posts) {
+                    setPassword('');
+                    setUsername('');
+                    setPosts(data.posts.data)
+                }
+
+                if (data) setLoggedIn(true);
             })
-            .catch(error => console.log(error))
     }
 
     return (

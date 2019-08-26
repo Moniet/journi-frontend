@@ -4,11 +4,9 @@ import Layout from '../Layout/Layout'
 import RegisterForm from '../../components/RegisterForm/RegisterForm'
 
 const Register = () => (
-    <Layout>
-        <div className={styles.container}>
-            <RegisterForm />
-        </div>
-    </Layout>
+    <div className={styles.container}>
+        <RegisterForm />
+    </div>
 )
 
 export default Register

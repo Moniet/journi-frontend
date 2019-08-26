@@ -12,20 +12,21 @@ const Post = (post) => {
     const token = localStorage.getItem('token')
     const [editable, makeEditable] = useState(false)
 
-    console.log(post);
-    
+    const resize = () => {
+        const height = postHeader.current.getBoundingClientRect().height + postFooter.current.getBoundingClientRect().height + postBody.current.getBoundingClientRect().height;
+        const rowSpan = Math.ceil(height / 42);
+        postEl.current.style.gridRow = `span ${rowSpan}`;
+    }
 
     useEffect(() => {
-        const height = postHeader.current.clientHeight + postFooter.current.clientHeight + postBody.current.clientHeight;
-        const rowSpan = Math.ceil(height / (30 + 8));
-        postEl.current.style.gridRow = `span ${rowSpan}`;
+        resize();
         postBody.current.contentEditable = editable;
         postTitle.current.contentEditable = editable;
-        postTitle.current.style.boxShadow = editable ? '0px 0px 0px 2px pink' : 'none'; 
-        postBody.current.style.boxShadow = editable ? '0px 0px 0px 2px pink' : 'none';
-        if (editable) postEl.current.style.zIndex += 1000;
-        if (!editable) postEl.current.style.zIndex = 0;
-    }, [editable])
+        // postTitle.current.style.boxShadow = editable ? '0px 0px 0px 2px pink' : 'none'; 
+        // postBody.current.style.boxShadow = editable ? '0px 0px 0px 2px pink' : 'none';
+        // if (editable) postEl.current.style.zIndex += 1000;
+        // if (!editable) postEl.current.style.zIndex = 0;
+    }, [editable])    
 
     const deletePost = () => {
         return;

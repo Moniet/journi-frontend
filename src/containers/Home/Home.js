@@ -3,11 +3,10 @@ import Layout from '../Layout/Layout'
 import Dashboard from '../../components/Dashboard/Dashboard'
 import Landing from '../../components/Landing/Landing'
 
-const Home = ({ isLoggedIn, posts, setPosts }) => (
-    <Layout>
-        {/* { isLoggedIn ? <Dashboard /> : <Landing /> } */}
-        <Dashboard setPosts={ setPosts } posts={ posts } />
-    </Layout>
+const Home = ({ posts, setPosts }) => (
+    <Dashboard setPosts={ setPosts } posts={ posts } />
 )
+
+// { isLoggedIn ? <Dashboard /> : <Landing /> } 
 
 export default Home

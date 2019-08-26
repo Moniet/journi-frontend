@@ -92,6 +92,17 @@ const editPost = (token, id, title, body) => {
     })    
 }
 
+const deletePost = (token, id) => {
+    return fetch(`${POSTS_URL}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    })    
+}
+
 const getPosts = (token) => {
     return fetch(USER_POSTS_URL, userOpts(token))
         .then(res => res.json())
@@ -102,5 +113,6 @@ export default {
     loginUser,
     createPost,
     editPost,
+    deletePost,
     getPosts
 }

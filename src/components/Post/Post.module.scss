@@ -7,7 +7,8 @@
     box-shadow: $post-shadow;
     outline: none;
     display: grid;
-    grid-template-rows: auto 1fr 50px;
+    grid-template-rows: auto 1fr auto;
+    word-break: inherit;
 }
 
 .postHeader {
@@ -30,10 +31,11 @@
 
 .postTitle {
     font-weight: bold;
+    outline: none;
 }
 
 .postBody {
-    margin: 1em;
+    padding: 1em;
     line-height: 1.5em;
     font-size: 0.75em;
     background: #fff;
