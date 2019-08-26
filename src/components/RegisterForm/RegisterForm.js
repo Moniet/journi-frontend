@@ -16,8 +16,8 @@ const RegisterForm = ({ showError, setLoggedIn, loggedIn }) => {
         API.registerUser(name, username, password)
             .then(data => {
                 if (data.jwt) {
-                    setLoggedIn(true)
                     localStorage.setItem('token', data.jwt)
+                    setLoggedIn(true)
                 }
 
                 if (data.errors) showError(data.errors)
