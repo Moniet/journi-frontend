@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 import styles from './NoteForm.module.scss'
-import API from '../../utils/API'
+import API from '../../utilities/API'
 import Label from '../Label/Label'
 import TextInput from  '../TextInput/TextInput'
 import Textarea from '../Textarea/Textarea'
