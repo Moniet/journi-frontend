@@ -6,7 +6,7 @@
 
 ### STEP 1 -- REGISTER
 
-![Journi Register Page](./public/img/register.png)
+![Journi Register Page](./public/img/register-1.png)
 
 When first visiting the website, a greeting appears with a prompt to register to the website.
 On clicking the prompt, you will be redirected to the page shown above.
@@ -30,7 +30,6 @@ Furthermore, just under the form, you will find your notes as shown above.
 ### STEP 4 -- EDITING AND DELETING NOTES
 
 ![Journi note form](./public/img/note-highlighted.png)
-![Journi note form](./public/img/edit-note-body.png)
 ![Journi note form](./public/img/edited-note.png)
 
 Editing a note is simple, all you need to do it click the edit button, and the note will highlight the areas that have been made editable. Clicking in the highlighted regions will allow to to alter that specific content. You will also notice that the edit button has been changed to a save button, which you can click to save your changes.
