@@ -30,7 +30,6 @@ Furthermore, just under the form, you will find your notes as shown above.
 ### STEP 4 -- EDITING AND DELETING NOTES
 
 ![Journi note form](./public/img/note-highlighted.png)
-![Journi note form](./public/img/edited-note.png)
 
 Editing a note is simple, all you need to do it click the edit button, and the note will highlight the areas that have been made editable. Clicking in the highlighted regions will allow to to alter that specific content. You will also notice that the edit button has been changed to a save button, which you can click to save your changes.
 
