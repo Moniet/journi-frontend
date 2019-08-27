@@ -25,7 +25,7 @@ const NoteForm = ({ setPosts, posts }) => {
     }
 
     return ( 
-        <form onSubmit={ handleSubmit }className={ styles.form }>
+        <form onSubmit={ handleSubmit } className={ styles.form }>
             <Label inputId="title" value="Title"/>
             <TextInput inputId="title" setValue={ setTitle } value={ title }/>
             <Label inputId="body" value="Body"/>
