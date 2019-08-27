@@ -1,8 +1,10 @@
 # [Journi | Digital Journal ](http://journi.netlify.com)
 
-![Journi landing page](./public/img/landing.png)
+Welcome to Journi, a digital journalling application to store your thoughts.
 
 ## GETTING STARTED IN 4 STEPS
+
+![Journi landing page](./public/img/landing.png)
 
 ### STEP 1 -- REGISTER
 
