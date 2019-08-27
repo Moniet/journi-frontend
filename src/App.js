@@ -31,12 +31,6 @@ function App() {
     if (!loggedIn) setPosts([]);
   }, [loggedIn])
 
-  console.log(`
-   posts: ${posts.toString()}
-   logged in: ${loggedIn}
-   toke: ${token}
-  `)
-
   return (
     <BrowserRouter>
       <Layout loggedIn={isLoggedIn} setLoggedIn={ setLoggedIn }>
