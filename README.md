@@ -1,6 +1,6 @@
 # [Journi | Digital Journal ](http://journi.netlify.com)
 
-Welcome to Journi, a digital journalling application to store your thoughts.
+Welcome to Journi, a digital journalling application where you can store your thoughts.
 
 ## GETTING STARTED IN 4 STEPS
 
