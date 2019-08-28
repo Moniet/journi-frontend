@@ -1,0 +1,26 @@
+// extends
+
+@function shortAnim($anim-name) {
+    $anim-property: $anim-name 0.2s linear forwards;
+    @return $anim-property;
+}
+
+@function medAnim($anim-name) {
+    $anim-property: $anim-name 1s linear forwards;
+    @return $anim-property;
+}
+
+@function longAnim($anim-name) {
+    $anim-property: $anim-name 2s linear forwards;
+    @return $anim-property;
+}
+
+// keyframes
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
+
+@debug shortAnim(fadeIn)

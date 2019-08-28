@@ -7,6 +7,7 @@ const PasswordInput = ({ setValue, value }) => (
         onChange={ e => setValue(e.target.value) }
         value={ value } 
         className="form__input round"
+        autoComplete="on"
     />
 )
 

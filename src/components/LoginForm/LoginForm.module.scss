@@ -1,11 +1,13 @@
 @import '../../styles/variables.scss';
+@import '../../styles/anime.scss';
 
 .form {
     position: relative;
     display: flex;
     flex-flow: column wrap;
+    opacity: 0;
+    animation: shortAnim(fadeIn);
 }
-
 
 @media (min-width: $xs-d) {
     .form {
