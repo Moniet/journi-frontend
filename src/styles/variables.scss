@@ -12,3 +12,8 @@ $shadow-hover: 0px 0px 10px rgba(0,0,0,0.1);
 $post-shadow: 1px 1px 5px rgba(0,0,0,0.05);
 
 // breakpoints 
+// small device === 'sm-d' || large device === 'lg-d'
+$xs-d: 320px;
+$sm-d: 576px;
+$md-d: 992px;
+$lg-d: 1200px;
