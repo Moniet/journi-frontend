@@ -1,6 +1,23 @@
+@import '../../styles/variables.scss';
+
 .form {
     position: relative;
     display: flex;
     flex-flow: column wrap;
-    width: 30%;
+}
+
+
+@media (min-width: $xs-d) {
+    .form {
+        width: 80%;
+        margin-top: 5em;
+    }
+}
+
+@media (min-width: $sm-d) {
+    .form { width: 50%; }
+}
+
+@media (min-width: $lg-d) {
+    .form { width: 30%; }
 }
