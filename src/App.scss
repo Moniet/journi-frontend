@@ -46,6 +46,8 @@ a {
   padding: 1em;
   box-shadow: $shadow-soft;
   outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   transition-duration: 0.2s;
 
   &:focus {

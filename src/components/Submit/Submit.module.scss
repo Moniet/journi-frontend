@@ -12,4 +12,6 @@
     box-shadow: $shadow;
     letter-spacing: 1px;
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
