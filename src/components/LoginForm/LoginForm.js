@@ -12,6 +12,8 @@ const LoginForm = ({ setPosts, setLoggedIn, loggedIn, showError }) => {
 
     const handleSubmit = e => {
         e.preventDefault()
+        document.querySelector('#loader').classList.remove('hide-loader');
+        document.querySelector('#loader').classList.add('show-loader');
         API.loginUser(username, password)
             .then(data => {
                 if (data.posts && !data.errors) {
@@ -26,6 +28,9 @@ const LoginForm = ({ setPosts, setLoggedIn, loggedIn, showError }) => {
                 }
                 
                 if (data.errors) showError(data.errors);
+
+                document.querySelector('#loader').classList.remove('show-loader');
+                document.querySelector('#loader').classList.add('hide-loader');
             })
     }
 

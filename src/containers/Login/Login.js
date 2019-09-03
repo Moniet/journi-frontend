@@ -2,6 +2,7 @@ import React, {useRef} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import styles from './Login.module.scss'
 import LoginForm from '../../components/LoginForm/LoginForm'
+import Loader from '../../components/Loader/Loader'
 
 const LoginPage = ({ setPosts, setLoggedIn, loggedIn }) => {
     const errorDiv = useRef();
@@ -14,6 +15,7 @@ const LoginPage = ({ setPosts, setLoggedIn, loggedIn }) => {
         <div className={styles.container}>
             <div ref={errorDiv} className="error"></div>
             <LoginForm setPosts={ setPosts } setLoggedIn={ setLoggedIn } loggedIn={ loggedIn }  showError={ showError }/>
+            <Loader />
         </div>
     )
 }
