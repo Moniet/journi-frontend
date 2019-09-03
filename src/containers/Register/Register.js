@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Route, Redirect } from 'react-router-dom' 
 import styles from './Register.module.scss'
 import RegisterForm from '../../components/RegisterForm/RegisterForm'
+import Loader from '../../components/Loader/Loader'
 
 const RegisterPage = ({ setLoggedIn, loggedIn }) => {
     const errorDiv = useRef();
@@ -11,9 +12,10 @@ const RegisterPage = ({ setLoggedIn, loggedIn }) => {
     }
 
     return (
-        <div className={styles.container}>
-            <div ref={errorDiv} className="error"></div>
+        <div className={ styles.container }>
+            <div ref={ errorDiv } className="error"></div>
             <RegisterForm showError={ showError }  loggedIn={ loggedIn } setLoggedIn={ setLoggedIn } />
+            <Loader />
         </div>
     )
 }

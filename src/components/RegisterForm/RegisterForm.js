@@ -13,6 +13,8 @@ const RegisterForm = ({ showError, setLoggedIn, loggedIn }) => {
 
     const handleSubmit = e => {
         e.preventDefault()
+        // document.querySelector('#loader').classList.remove('hide-loader');
+        document.querySelector('#loader').classList.add('show-loader');
         API.registerUser(name, username, password)
             .then(data => {
                 if (data.jwt) {
@@ -21,6 +23,8 @@ const RegisterForm = ({ showError, setLoggedIn, loggedIn }) => {
                 }
 
                 if (data.errors) showError(data.errors)
+
+                document.querySelector('#loader').classList.remove('show-loader');
             })
     }
 
