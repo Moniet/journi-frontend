@@ -23,4 +23,11 @@
     }
 }
 
-@debug shortAnim(fadeIn)
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+// @debug shortAnim(fadeIn)

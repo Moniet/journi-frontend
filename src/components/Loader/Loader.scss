@@ -3,7 +3,6 @@ $decrement: 0.25;
 $animation-time: 2s;
 $num-circles: 4;
 
-
 .loader-container {
     display: none;
     position: absolute;
@@ -12,9 +11,11 @@ $num-circles: 4;
     top: 12vh;
     width: 100vw;
     height: 88vh;
-    background: rgb(245, 244, 244);
-    transition: display 2s, opacity 2s;
-    opacity: 0;
+    background: white;
+}
+
+.loader {
+  justify-content: center;
 }
 
 .circle {
@@ -23,19 +24,16 @@ $num-circles: 4;
     box-shadow: 1px 1x 1px rgba(0,0,0,0.1);
     border-radius: 50%;
     background: pink;
-    margin: 0.5em;
+    margin-right: 1em;
 }
 
 .show-loader {
   display: flex;
-  transition: display 2s, opacity 2s;
-  opacity: 1;
+  animation: fadeIn 0.2s linear forwards;
 }
 
 .hide-loader {
-  display: none;
-  transition: display 2s, opacity 2s;
-  opacity: 1;
+  animation: fadeOut 0.2s linear forwards;
 }
 
 @function dec($seconds) { // adding animation delay between each circle
@@ -50,8 +48,25 @@ $num-circles: 4;
   
   @keyframes fadeInOut {
     50% {
-      transform: translateY(-10px);
-      background: rgba(255,255,255,0.8);
+      transform: translateY(-20px);
+      opacity: 0.1;
       box-shadow: 2px 2px 5px rgba(255,255,255,0.2);
     }
   }
+
+@keyframes fadeIn {
+  0% {
+    display: flex;
+    opacity: 0;
+  }
+  100% {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    99% { opacity: 0; }
+    100% { display:  none; }
+}
