@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -6,4 +8,12 @@
     justify-content: center;
     margin: 5em auto;
     width: 90%;
+}
+
+@media (min-width: $xs-d) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: $md-d) {
+    .grid { grid-template-columns: repeat(4, 1fr); }
 }

@@ -59,3 +59,7 @@
 .btnSave {
     background: pink;
 }
+
+@media (min-width: $xs-d ) {
+    .postHeader { padding: 0.5em; }
+}
