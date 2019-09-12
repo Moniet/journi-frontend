@@ -1,4 +1,6 @@
-# [Journi | Digital Journal ](http://journi.netlify.com)
+# [Journi | Digital Journal ](http://journi.netlify.com) 
+
+[rails backend repo](https://github.com/Moniet/journi-backend)
 
 Welcome to Journi, a digital journalling application where you can store your thoughts.
 
