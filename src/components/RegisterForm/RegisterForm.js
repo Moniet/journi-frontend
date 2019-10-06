@@ -22,21 +22,24 @@ const RegisterForm = ({ showError, setLoggedIn, loggedIn, client }) => {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('') 
 
-    const [createUser, { loading, error, data }] = useMutation(CREATE_USER, 
-          {
-            onCompleted({ createUser }) {
-              localStorage.setItem('token', createUser.token);
-              setLoggedIn(!loggedIn)
-            }
-          });
+    const [createUser, { loading, error, data }] = useMutation(CREATE_USER)
+        //   {
+        //     onCompleted({ createUser }) {
+        //       localStorage.setItem('token', createUser.token);
+        //       setLoggedIn(!loggedIn)
+        //     }
+        //   });
+    
+    // if (loading) {
+    //     document.querySelector('#loader').classList.remove('hide-loader');
+    //     document.querySelector('#loader').classList.add('show-loader');
+    // } 
+
+    if (error) showError(error);
 
     const handleSubmit = e => {
         e.preventDefault()
         createUser({ variables: {name, username, password} });
-        if (loading) {
-            document.querySelector('#loader').classList.remove('hide-loader');
-            document.querySelector('#loader').classList.add('show-loader');
-        } 
     }
 
     return (

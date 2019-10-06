@@ -13,8 +13,9 @@ const LOGIN_USER = gql`
         loginUser(username: $username, password: $password) {
             user {
                 posts {
-                    id, 
-                    title,
+                    id
+                    title
+                    body
                     
                 }
             }
@@ -32,6 +33,7 @@ const LoginForm = ({ setPosts, setLoggedIn, loggedIn, showError }) => {
             localStorage.setItem('token', loginUser.token)
             setPosts(loginUser.posts)
             setLoggedIn(true)
+            console.log(loginUser)
         }
     });
 
@@ -40,7 +42,7 @@ const LoginForm = ({ setPosts, setLoggedIn, loggedIn, showError }) => {
         document.querySelector('#loader').classList.add('hide-loader')
     }
 
-    if (error) showError(error);
+    if (error) showError(error) && console.log(error);
 
     const handleSubmit = e => {
         e.preventDefault()

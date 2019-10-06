@@ -10,9 +10,15 @@ import Layout from './containers/Layout/Layout';
 import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
 
-// const GET_POSTS = gql`
-//   query 
-// `
+const GET_POSTS = gql`
+  {
+    posts {
+      id, 
+      title,
+      body
+    }
+  }
+`
 
 
 function App() {
@@ -21,8 +27,12 @@ function App() {
   const [posts, setPosts] = useState([])
   const [loggedIn, setLoggedIn] = useState(isLoggedIn)
 
+  const { loading, error, data } = useQuery(GET_POSTS)
+  
+  if (data) console.log(data);
+
   const removePost = id => {
-      setPosts([...posts.filter(post => post.id !== id)])
+      setPosts(posts.filter(post => post.id !== id))
   }
 
   useEffect(() => {
