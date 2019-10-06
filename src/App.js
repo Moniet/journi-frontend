@@ -7,11 +7,18 @@ import Login from './containers/Login/Login'
 import Register from './containers/Register/Register'
 import Home from './containers/Home/Home'
 import Layout from './containers/Layout/Layout';
+import { useQuery } from 'react-apollo'
+import gql from 'graphql-tag'
+
+
+const GET_POSTS = gql`
+  query 
+`
 
 
 function App() {
   const token = localStorage.getItem('token')
-  const isLoggedIn = token !== 'false' && token ? true : false
+  const isLoggedIn = token !== 'false' && token !== ''
   const [posts, setPosts] = useState([])
   const [loggedIn, setLoggedIn] = useState(isLoggedIn)
 
@@ -21,12 +28,13 @@ function App() {
 
   useEffect(() => {
     if (loggedIn) {
-      API.getPosts(token).then(data => { 
-        if (data.posts.data) 
-          setPosts(data.posts.data)
-        else
-          setPosts(data.posts)        
-      })
+      // API.getPosts(token).then(data => { 
+      //   if (data.posts.data) 
+      //     setPosts(data.posts.data)
+      //   else
+      //     setPosts(data.posts)        
+      // })
+      return null;
     }
     if (!loggedIn) setPosts([]);
   }, [loggedIn])
