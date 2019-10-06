@@ -31,7 +31,7 @@ const LoginForm = ({ setPosts, setLoggedIn, loggedIn, showError }) => {
     const [loginUser, { loading, error } ] = useMutation(LOGIN_USER, {
         onCompleted({ loginUser }) {
             localStorage.setItem('token', loginUser.token)
-            setPosts(loginUser.posts)
+            setPosts(loginUser.user.posts)
             setLoggedIn(true)
             console.log(loginUser)
         }

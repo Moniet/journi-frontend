@@ -27,26 +27,16 @@ function App() {
   const [posts, setPosts] = useState([])
   const [loggedIn, setLoggedIn] = useState(isLoggedIn)
 
-  const { loading, error, data } = useQuery(GET_POSTS)
-  
-  if (data) console.log(data);
+  const { loading, error, data } = useQuery(GET_POSTS) 
 
   const removePost = id => {
       setPosts(posts.filter(post => post.id !== id))
   }
 
   useEffect(() => {
-    if (loggedIn) {
-      // API.getPosts(token).then(data => { 
-      //   if (data.posts.data) 
-      //     setPosts(data.posts.data)
-      //   else
-      //     setPosts(data.posts)        
-      // })
-      return null;
-    }
+    if (data) setPosts(data.posts);
     if (!loggedIn) setPosts([]);
-  }, [loggedIn])
+  }, [loggedIn, data])
 
   return (
     <BrowserRouter>

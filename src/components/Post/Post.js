@@ -43,11 +43,11 @@ const Post = ({ post, removePost }) => {
        post ?
         <div ref={postEl} className={ styles.post }>
             <header ref={ postHeader } className={ styles.postHeader } >
-                <h2 ref={ postTitle } className={ styles.postTitle }>{ post.attributes.title }</h2>
+                <h2 ref={ postTitle } className={ styles.postTitle }>{ post.title }</h2>
             </header>
 
             <div ref={postBody} className={ styles.postBody } >
-                { post.attributes.body }
+                { post.body }
             </div>
 
             <footer ref={postFooter} className={styles.postFooter}>
