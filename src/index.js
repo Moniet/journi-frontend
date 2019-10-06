@@ -9,7 +9,7 @@ import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { setContext } from 'apollo-link-context';
 
-const baseURL = 'https://journi-app.herokuapp.com'
+const baseUrl = 'https://journi-app.herokuapp.com'
 
 const authLink = setContext((_, {headers}) => {
     const token = localStorage.getItem('token');
