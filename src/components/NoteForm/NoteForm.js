@@ -5,23 +5,35 @@ import Label from '../Label/Label'
 import TextInput from  '../TextInput/TextInput'
 import Textarea from '../Textarea/Textarea'
 import Submit from '../Submit/Submit'
+import gql from 'graphql-tag'
+import { useMutation } from 'react-apollo'
 
+const CREATE_POST = gql`
+    mutation CreatePost($title: String!, $body: String!) {
+        createPost(title: $title, body: $body) {
+            post {
+                id
+                title
+                body
+            }
+        }
+    }
+`
 
 const NoteForm = ({ setPosts, posts }) => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+    const [createPost] = useMutation(CREATE_POST, {
+        onCompleted({ createPost }) {
+            setPosts([...posts, createPost.post])
+            setTitle('')
+            setBody('')
+        }
+    })
 
     const handleSubmit = e => {
         e.preventDefault()
-        const token = localStorage.getItem('token')
-        API.createPost(token, title, body)
-            .then(post => {
-                if (post.data) {
-                    setTitle('')
-                    setBody('')
-                    setPosts([ post.data, ...posts]);
-                }
-            })
+        createPost({ variables: {title, body} })
     }
 
     return ( 
