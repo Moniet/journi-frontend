@@ -26,7 +26,7 @@ const Register = ({ setLoggedIn, loggedIn }) => (
         render={() => (
         loggedIn ? 
         <Redirect to='/' />
-        : <RegisterPage setLoggedIn={ setLoggedIn} loggedIn={ loggedIn }/>
+        : <RegisterPage setLoggedIn={ setLoggedIn } loggedIn={ loggedIn }/>
         )}
     />
 )

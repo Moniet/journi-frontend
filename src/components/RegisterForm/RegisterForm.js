@@ -5,28 +5,38 @@ import TextInput from '../TextInput/TextInput'
 import Label from '../Label/Label'
 import PasswordInput from '../PasswordInput/PasswordInput';
 import Submit from '../Submit/Submit'
+import { gql } from 'apollo-boost'
+import { useMutation, useApolloClient } from 'react-apollo'
 
-const RegisterForm = ({ showError, setLoggedIn, loggedIn }) => {
+const CREATE_USER = gql`
+        mutation CreateUser($name: String!, $username: String!, $password: String!) {
+            createUser (name: $name, username: $username, password: $password) {
+                errors,
+                token,
+            }
+        }
+    `
+
+const RegisterForm = ({ showError, setLoggedIn, loggedIn, client }) => {
     const [username, setUsername] = useState('')
     const [name, setName] = useState('')
-    const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('') 
+
+    const [createUser, { loading, error, data }] = useMutation(CREATE_USER, 
+          {
+            onCompleted({ createUser }) {
+              localStorage.setItem('token', createUser.token);
+              setLoggedIn(!loggedIn)
+            }
+          });
 
     const handleSubmit = e => {
         e.preventDefault()
-        document.querySelector('#loader').classList.remove('hide-loader');
-        document.querySelector('#loader').classList.add('show-loader');
-        API.registerUser(name, username, password)
-            .then(data => {
-                if (data.jwt) {
-                    localStorage.setItem('token', data.jwt)
-                    setLoggedIn(true)
-                }
-
-                if (data.errors) showError(data.errors)
-
-                document.querySelector('#loader').classList.add('hide-loader');
-                document.querySelector('#loader').classList.remove('show-loader');
-            })
+        createUser({ variables: {name, username, password} });
+        if (loading) {
+            document.querySelector('#loader').classList.remove('hide-loader');
+            document.querySelector('#loader').classList.add('show-loader');
+        } 
     }
 
     return (
@@ -37,10 +47,9 @@ const RegisterForm = ({ showError, setLoggedIn, loggedIn }) => {
             <TextInput setValue={ setUsername } value={ username } inputId="username" />
             <Label value={ 'Password' } inputId="password" />
             <PasswordInput setValue={ setPassword } value={ password } inputId="password" />
-            <Submit />
+            <Submit/>
         </form>
     )
 }
 
 export default RegisterForm
-    

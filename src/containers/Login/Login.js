@@ -3,6 +3,8 @@ import { Route, Redirect } from 'react-router-dom'
 import styles from './Login.module.scss'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import Loader from '../../components/Loader/Loader'
+import gql from 'graphql-tag'
+import { useMutation } from 'react-apollo'
 
 const LoginPage = ({ setPosts, setLoggedIn, loggedIn }) => {
     const errorDiv = useRef();

@@ -12,7 +12,7 @@ const Loader = () => {
       let loaderCircles = [];
       
       for (let n = 0; n < numCircles; n++) {
-        loaderCircles.push(<LoaderCircle number={n+1} />);
+        loaderCircles.push(<LoaderCircle number={n+1} key={n} />);
       }
       
       return (

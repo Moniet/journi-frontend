@@ -10,10 +10,9 @@ import Layout from './containers/Layout/Layout';
 import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
 
-
-const GET_POSTS = gql`
-  query 
-`
+// const GET_POSTS = gql`
+//   query 
+// `
 
 
 function App() {
