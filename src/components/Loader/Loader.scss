@@ -4,7 +4,7 @@ $animation-time: 2s;
 $num-circles: 4;
 
 .loader-container {
-    display: none;
+    display: flex;
     position: absolute;
     align-items: center;
     justify-content: center;

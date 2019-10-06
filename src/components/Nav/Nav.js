@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Nav.module.scss'
 
-const Nav = ({ loggedIn, setLoggedIn }) => {
+const Nav = ({ loggedIn, setLoggedIn, setPosts}) => {
 
     const logoutUser = () => {
         localStorage.setItem('token', 'false')
+        setPosts([])
         setLoggedIn(false)
     }
     

@@ -7,6 +7,7 @@ import PasswordInput from '../PasswordInput/PasswordInput';
 import Submit from '../Submit/Submit'
 import { useMutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import Loader from '../Loader/Loader'
 
 const LOGIN_USER = gql`
     mutation LoginUser($username: String!, $password: String!) {
@@ -31,16 +32,16 @@ const LoginForm = ({ setPosts, setLoggedIn, loggedIn, showError }) => {
     const [loginUser, { loading, error } ] = useMutation(LOGIN_USER, {
         onCompleted({ loginUser }) {
             localStorage.setItem('token', loginUser.token)
+            console.log(loginUser.user.posts)
             setPosts(loginUser.user.posts)
             setLoggedIn(true)
-            console.log(loginUser)
+            
         }
     });
 
-    if (loading) {
-        document.querySelector('#loader').classList.remove('show-loader')
-        document.querySelector('#loader').classList.add('hide-loader')
-    }
+    // if (loading) {
+    //     return <Loader />
+    // }
 
     if (error) showError(error) && console.log(error);
 

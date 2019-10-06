@@ -34,13 +34,13 @@ function App() {
   }
 
   useEffect(() => {
-    if (data) setPosts(data.posts);
+    if (loggedIn && data) setPosts(data.posts);
     if (!loggedIn) setPosts([]);
   }, [loggedIn, data])
 
   return (
     <BrowserRouter>
-      <Layout loggedIn={isLoggedIn} setLoggedIn={ setLoggedIn }>
+      <Layout loggedIn={isLoggedIn} setLoggedIn={ setLoggedIn } setPosts={setPosts}>
         <Route exact path='/' render={ () => <Home loggedIn={ loggedIn } posts={ posts } setPosts={ setPosts } removePost={ removePost } /> } />
         <Route exact path="/login" render={ () => <Login loggedIn={ loggedIn } setPosts={ setPosts } setLoggedIn={ setLoggedIn } /> } />
         <Route exact path="/register" render={ () =>  <Register loggedIn={ loggedIn } setLoggedIn={ setLoggedIn } /> } />

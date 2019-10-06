@@ -17,7 +17,6 @@ const LoginPage = ({ setPosts, setLoggedIn, loggedIn }) => {
         <div className={styles.container}>
             <div ref={errorDiv} className="error"></div>
             <LoginForm setPosts={ setPosts } setLoggedIn={ setLoggedIn } loggedIn={ loggedIn }  showError={ showError }/>
-            <Loader />
         </div>
     )
 }

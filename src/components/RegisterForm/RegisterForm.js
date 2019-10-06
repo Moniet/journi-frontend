@@ -7,6 +7,7 @@ import PasswordInput from '../PasswordInput/PasswordInput';
 import Submit from '../Submit/Submit'
 import { gql } from 'apollo-boost'
 import { useMutation, useApolloClient } from 'react-apollo'
+import Loader from '../Loader/Loader'
 
 const CREATE_USER = gql`
         mutation CreateUser($name: String!, $username: String!, $password: String!) {
@@ -17,25 +18,22 @@ const CREATE_USER = gql`
         }
     `
 
+
 const RegisterForm = ({ showError, setLoggedIn, loggedIn, client }) => {
     const [username, setUsername] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('') 
 
-    const [createUser, { loading, error, data }] = useMutation(CREATE_USER)
-        //   {
-        //     onCompleted({ createUser }) {
-        //       localStorage.setItem('token', createUser.token);
-        //       setLoggedIn(!loggedIn)
-        //     }
-        //   });
+    const [createUser, { loading, error, data }] = useMutation(CREATE_USER, {
+            onCompleted({ createUser }) {
+              localStorage.setItem('token', createUser.token);
+              setLoggedIn(!loggedIn)
+              if (error) showError(data.errors);
+            }
+          });
     
-    // if (loading) {
-    //     document.querySelector('#loader').classList.remove('hide-loader');
-    //     document.querySelector('#loader').classList.add('show-loader');
-    // } 
+    // if (loading) return <Loader />;
 
-    if (error) showError(error);
 
     const handleSubmit = e => {
         e.preventDefault()

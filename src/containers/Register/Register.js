@@ -15,7 +15,6 @@ const RegisterPage = ({ setLoggedIn, loggedIn }) => {
         <div className={ styles.container }>
             <div ref={ errorDiv } className="error"></div>
             <RegisterForm showError={ showError }  loggedIn={ loggedIn } setLoggedIn={ setLoggedIn } />
-            <Loader />
         </div>
     )
 }
