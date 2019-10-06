@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './Post.module.scss'
-import API from '../../utils/API';
+import gql from 'graphql-tag';
+import { useMutation } from 'react-apollo';
+
+const UPDATE_POST = gql`
+    mutation UpdatePost()
+`
 
 const Post = ({ post, removePost }) => {
     const postEl = useRef(null)
